@@ -1,0 +1,73 @@
+{
+  "manifest_version": "0.2",
+  "name": "ErcotMCPExtension",
+  "display_name": "Nanocentury AI Ercot MCP Extension",
+  "version": "1.0.0",
+  "description": "This is an MCP extension for interacting with the Ercot API. It opens up dozens of endpoints and enables a simple forecast for next-day prices.  You will need a valid API account and credentials to use it. ",
+  "author": {
+    "name": "Stefan Wojcik",
+    "email": "hey@nanocentury-ai.com",
+    "url": "https://www.nanocentury-ai.com"
+  },
+  "homepage": "https://www.github.com/nanocentury-ai/ercotmcp",
+  "documentation": "https://www.github.com/nanocentury-ai/ercotmcp",
+  "support": "https://www.github.com/nanocentury-ai/ercotmcp/issues",
+  "icon": "universe_logo_small.png",
+  "screenshots": [
+    "assets/screenshots/screenshot1.png"
+  ],
+  "server": {
+    "type": "python",
+    "entry_point": "server/main.py",
+    "mcp_config": {
+      "command": "/opt/homebrew/bin/python3",
+      "args": [
+        "-m",
+        "server"
+      ],
+      "env": {
+        "PYTHONPATH": "${__dirname}:${__dirname}/lib",
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin",
+        "ERCOTUSER": "${user_config.username}",
+        "ERCOTPASS": "${user_config.api_password}",
+        "ERCOTKEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "fetch_ercot_data",
+      "description": "Fetch data from ERCOT public API endpoints"
+    }
+  ],
+  "keywords": [
+    "ercot",
+    "energy",
+    "forecasting",
+    "prices"
+  ],
+  "license": "MIT", 
+  "user_config": {
+    "username": {
+      "type": "string",
+      "title": "API User Name",
+      "description": "Your user name for ERCOT API authentication",
+      "sensitive": true,
+      "required": false
+    },
+    "api_key": {
+      "type": "string",
+      "title": "API Key",
+      "description": "Your API key for authentication",
+      "sensitive": true,
+      "required": false
+    },
+    "api_password": {
+      "type": "string",
+      "title": "API Password",
+      "description": "Your API password for authentication",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}

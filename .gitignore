@@ -1,0 +1,21 @@
+# MCP Extension Bundle
+ErcotMCPExtension.mcpb
+
+# Dependencies
+lib/
+venv/
+*.egg-info/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environment
+.env
+
+# Build artifacts
+build/
+dist/
+.DS_Store
