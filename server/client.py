@@ -44,7 +44,7 @@ class ErcotAPIClient:
         self,
         url: str,
         params: Optional[Dict[str, Any]] = None,
-        timeout: int = 30,
+        timeout: int = 50,
     ) -> Dict[str, Any]:
         """
         Make authenticated API call to ERCOT.
